@@ -6,7 +6,6 @@ class WeatherFacade
   end
 
   def current
-    # binding.pry
     { "icon" => weather_results["currently"]["icon"],
       "summary" => weather_results["currently"]["summary"],
       "temperature" => weather_results["currently"]["temperature"],
@@ -45,12 +44,10 @@ class WeatherFacade
   end
 
   def weather_results
-    # binding.pry
     weather_results = service_call.get_weather_data
   end
 
   def location_results
-    # binding.pry
     service_call.grab_location
   end
 

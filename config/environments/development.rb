@@ -18,12 +18,12 @@ Rails.application.configure do
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
+      'Cache-Control' => "public, max-age=#{3600.seconds.to_i}"
     }
-  else
-    config.action_controller.perform_caching = false
-
-    config.cache_store = :null_store
+  # else
+  #   config.action_controller.perform_caching = false
+  #
+  #   config.cache_store = :null_store
   end
 
   # Don't care if the mailer can't send.

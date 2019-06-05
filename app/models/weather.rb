@@ -14,17 +14,14 @@ class Weather
 
   def current_conditions
     weather_facade.current
-    # {"temp" => 71, "dew" => 75}
   end
 
   def hourly_conditions
     weather_facade.hourly
-    # {"temp" => 71, "dew" => 75}
   end
 
   def daily_conditions
     weather_facade.daily
-    # {"temp" => 71, "dew" => 75}
   end
 
   def weather_facade
