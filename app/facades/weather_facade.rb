@@ -1,10 +1,12 @@
 class WeatherFacade
+  attr_reader :weather_results
 
   def initialize(location)
     @location = location
   end
 
   def current
+    # binding.pry
     { "icon" => weather_results["currently"]["icon"],
       "summary" => weather_results["currently"]["summary"],
       "temperature" => weather_results["currently"]["temperature"],
@@ -43,8 +45,17 @@ class WeatherFacade
   end
 
   def weather_results
-    darksky_weather_results = DarkskyService.new(@location)
-    weather_results = darksky_weather_results.get_weather_data
+    # binding.pry
+    weather_results = service_call.get_weather_data
+  end
+
+  def location_results
+    # binding.pry
+    service_call.grab_location
+  end
+
+  def service_call
+    DarkskyService.new(@location)
   end
 
 end

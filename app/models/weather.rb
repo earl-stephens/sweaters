@@ -18,16 +18,16 @@ class Weather
   end
 
   def hourly_conditions
-    # weather_facade.hourly
-    {"temp" => 71, "dew" => 75}
+    weather_facade.hourly
+    # {"temp" => 71, "dew" => 75}
   end
 
   def daily_conditions
-    # weather_facade.daily
-    {"temp" => 71, "dew" => 75}
+    weather_facade.daily
+    # {"temp" => 71, "dew" => 75}
   end
 
   def weather_facade
-    weather_data = WeatherFacade.new(@location)
+    WeatherFacade.new(@location)
   end
 end
