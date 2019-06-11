@@ -12,4 +12,8 @@ class User < ApplicationRecord
     SecureRandom.urlsafe_base64(18)
   end
 
+  def get_city_to_delete(location, user)
+    
+  end
+
 end
