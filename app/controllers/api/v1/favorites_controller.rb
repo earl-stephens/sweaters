@@ -2,6 +2,14 @@ module Api
   module V1
     class FavoritesController < ApplicationController
 
+      def index
+        if correct_key? == false
+          render file: 'public/401', :status => 401
+        else
+          render json: FavoritesSerializer.new.favorite_location_weather(current_user)
+        end
+      end
+
       def create
         if correct_key? == false
           render file: 'public/401', :status => 401
