@@ -9,7 +9,7 @@ class DarkskyService
   end
 
   def get_weather_data
-    Rails.cache.fetch("get_the_data", :expires_in => 15.minutes) do
+    Rails.cache.fetch("#{@location}/get_the_data", :expires_in => 15.minutes) do
       conn = Faraday.new("https://api.darksky.net/forecast/#{ENV['dark_sky_api']}/#{get_coordinates}") do |f|
         f.adapter Faraday.default_adapter
       end
