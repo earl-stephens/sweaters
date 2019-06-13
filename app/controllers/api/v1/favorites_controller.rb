@@ -18,6 +18,17 @@ module Api
         end
       end
 
+      def destroy
+        if correct_key? == false
+          render file: 'public/401', :status => 401
+        else
+          to_be_deleted = Favorite.new.get_city_to_delete(params["location"], current_user)
+          to_be_deleted[0].destroy
+          current_user.reload
+          render json: FavoritesSerializer.new.favorite_location_weather(current_user)
+        end
+      end
+
       private
 
       def correct_key?
